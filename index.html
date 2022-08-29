@@ -1,0 +1,640 @@
+<!DOCTYPE>
+<html>
+ 
+<head>
+ 
+<title>{Title}</title>
+ 
+<link rel="shortcut icon" href="{Favicon}">
+ 
+<!------ JQUERY ------>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+ 
+<!------ FONTS ------>
+<link href="https://fonts.googleapis.com/css?family=Exo|Rationale|Barlow+Condensed:400i,500i" rel="stylesheet">
+ 
+<!------ ICON FONTS ------>
+<script src="//glenthemes.github.io/system-uicons/init-icons.js"></script>
+<link href="style.css" rel="stylesheet">
+ 
+<link rel="stylesheet" href="//unpkg.com/phosphor-icons@1.3.2/src/css/phosphor.css">
+ 
+<!------ THEME SCRIPTS ------>
+<script src="//static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+ 
+<link href="//glenthemes.s3.eu-west-2.amazonaws.com/abt-pages/07/rogue.css" rel="stylesheet">
+ 
+<script src="//glenthemes.s3.eu-west-2.amazonaws.com/abt-pages/07/rogue.js"></script>
+ 
+<!----------------------------->
+ 
+<style type="text/css">
+ 
+/*------ HOVER TOOLTIPS ------*/
+#s-m-t-tooltip {
+    padding:5px 10px;
+    margin:20px;
+    background-color:var(--Tooltips-BG);
+    border:1px solid var(--Tooltips-Border);
+    font-family:exo;
+    font-size:calc(var(--Misc-Font-Size) - 2.5px);
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+    color:var(--Tooltips-Text);
+    z-index:99;
+    max-width:40vw;
+}
+ 
+/*------ TUMBLR CONTROLS ------*/
+iframe#tumblr_controls, .iframe-controls--desktop {
+    top:5px!important;
+    right:5px!important;
+    position:fixed!important;
+ 
+    transform:scale(0.7,0.7);
+ 
+    transform-origin:100% 0;
+    z-index:999999!important;
+}
+ 
+/*------ TEXT HIGHLIGHT ------*/
+::selection {
+    color:var(--Text-Highlight);
+    background:var(--Text-Highlight-Background);
+}
+ 
+::-moz-selection {
+    color:var(--Text-Highlight);
+    background:var(--Text-Highlight-Background);
+}
+ 
+/*------ BASICS ------*/
+body {
+    font-family:exo;
+    font-size:var(--Misc-Font-Size);
+    color:var(--Misc-Text-Color);
+    line-height:var(--General-Line-Height);
+    text-align:left;
+    overflow:hidden;
+    overscroll-behavior-y:none;
+}
+ 
+a {
+    color:var(--Links-Color);
+}
+ 
+b, strong {
+    color:var(--TextBox-Bold);
+}
+ 
+i:not([class]), em:not([class]) {
+    color:var(--TextBox-Italic);
+}
+ 
+/*------ BACKGROUND COLOR & BACKGROUND IMAGE ------*/
+body {
+    background-image:url('https://universe-meeps.leagueoflegends.com/v1/assets/images/kda/kda-splash-background.jpg');
+ 
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+ 
+    background-color:#100b21;
+}
+ 
+/*------ COLOR, SIZING, SPACING OPTIONS ------*/
+:root {
+    --Page-FadeIn-Speed:0.420s;
+ 
+    /*---- CONTAINER ----*/
+    --Container-Background:#11081f;
+    --Container-Padding:25px;
+    --Container-Width:calc(var(--Sidebar-Image-Width) + (var(--Sidebar-Image-Frame-Size) * 2) + var(--Center-Gap) + var(--Column-1-Width) + var(--Column-Spacing) + var(--Column-2-Width));
+ 
+    /*---- TOP SECTION ----*/
+    --Top-Title-Size:17px;
+    --Top-Title-Color:#92e9e5;
+    --Top-Divider-Color:#42d1be;
+ 
+    --NavLinks-Icon-Size:14px;
+    --NavLinks-Icon-Color:#d9bcf6;
+    --NavLinks-Icon-Padding:6px;
+    --NavLinks-Icon-Background:#2a143a;
+    --NavLinks-Icon-Rounding:3px;
+    --NavLinks-Spacing:6px;
+    --NavLinks-Hover-Speed:0.169s;
+ 
+    --NavLinks-HOVER-Background:#84fae2;
+    --NavLinks-HOVER-Icon:#111;
+ 
+    --Tooltips-BG:#231131;
+    --Tooltips-Border:#3c3545;
+    --Tooltips-Text:#becfd2;
+ 
+    /*---- LEFT SIDEBAR ----*/
+    --Sidebar-Image-Frame-Size:8px;
+    --Sidebar-Image-Frame-Color:#2b153b;
+    --Sidebar-Image-Width:270px;
+    --Sidebar-Image-Background:#341c36;
+ 
+    /*---- MUSIC PLAYER ----*/
+    --MusicPlayer-Padding:16px;
+    --MusicPlayer-Background:#110817;
+    --MusicPlayer-Background-Transparency:30%;
+    --MusicPlayer-Buttons-Size:13px;
+    --MusicPlayer-Buttons-Color:#becfd2;
+    --MusicPlayer-Text-Size:12px;
+    --MusicPlayer-Text-Color:#becfd2;
+ 
+    /* gap between left sidebar and rightside main content */
+    --Center-Gap:20px;
+ 
+    /*---- SMALL TITLE ----*/
+    --Small-Title-Size:12px;
+    --Small-Title-Color:#74c5bc;
+ 
+    /*---- BIG TITLE ----*/
+    --Big-Title-Size:28px;
+    --Big-Title-Color:#74c5bc;
+    --Flashing-Cursor-Width:13px;
+    --Flashing-Cursor-Color:#74c5bc;
+ 
+    /*---- QUOTE ----*/
+    --Quote-Border-Depth:8px;
+    --Quote-Border-Size:1px;
+    --Quote-Border-Color:#42d1be;
+    --Quote-Padding:10px;
+    --Quote-Font-Size:12px;
+    --Quote-Color:#d2e5e8;
+    --Quote-Triangle-Size:15px;
+ 
+    /*---- ICON IMAGE ----*/
+    --Icon-Image-Spacing:9px;
+    --Icon-Image-Size:50px;
+    --Icon-Image-Border-Size:6px;
+    --Icon-Image-Border-Color:#2b153b;
+ 
+    /*---- COLUMN 1 ----*/
+    --Column-1-Width:200px;
+ 
+    --Labels-Box-Padding:15px;
+    --Labels-Box-Border-Size:1px;
+    --Labels-Box-Border-Color:#574c63;
+    --Labels-Box-Background:#11081f;
+    --Label-Name-Size:13px;
+    --Label-Name-Color:#74c5bc;
+    --Label-Detail-Size:11px;
+    --Label-Detail-Color:#c3d4d7;
+    --Label-Row-Spacing:6px;
+ 
+    --Custom-Links-Per-Row:2;
+    --Custom-Links-Spacing:8px;
+    --Custom-Links-Padding:7px;
+    --Custom-Links-Background:#2a143a;
+    --Custom-Links-Font-Size:10px;
+    --Custom-Links-Color:#d9bcf6;
+ 
+    --Custom-Links-HOVER-Background:#84fae2;
+    --Custom-Links-HOVER-Color:#111;
+    --Custom-Links-Hover-Speed:0.169s;
+ 
+    /*---- COLUMN SPACING ----*/
+    --Column-Spacing:18px;
+ 
+    /*---- COLUMN 2 ----*/
+    --Column-2-Width:200px;
+ 
+    --TextBox-Title-Padding:8px;
+    --TextBox-Title-Background:#2a143a;
+    --TextBox-Title-Size:12px;
+    --TextBox-Title-Color:#d9bcf6;
+ 
+    --TextBox-Padding:14px;
+    --TextBox-Border-Size:1px;
+    --TextBox-Border-Color:#574c63;
+    --TextBox-Background:#11081f;
+ 
+    --TextBox-Font-Size:11px;
+    --TextBox-Text-Color:#c3d4d7;
+    --TextBox-Links:#cc91e7;
+    --TextBox-Links-Underline:#452160;
+    --TextBox-Bold:#74c5bc;
+    --TextBox-Italic:#75bac7;
+    --General-Line-Height:1.8em;
+ 
+    --Scrollbar-Padding:9px;
+    --Scrollbar-Thumb:#574c63;
+    --Scrollbar-Track:#28222d;
+ 
+    /*---- OTHER ----*/
+    --Text-Highlight:#74c5bc;
+    --Text-Highlight-Background:#11081f;
+}
+ 
+/*------ TOP SECTION ------*/
+section[top]{
+    margin-bottom:20px;
+}
+ 
+[top-title]{
+    margin-left:1.5px;
+    font-family:rationale;
+    font-size:var(--Top-Title-Size);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:var(--Top-Title-Color);
+    line-height:var(--Top-Title-Size);
+}
+ 
+[top] [divider]{
+    margin:0 8px;
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--Top-Divider-Color), transparent);
+}
+ 
+[top-links] .system-uicons {
+    stroke-width:1.2;
+}
+ 
+/*------ LEFT SIDEBAR ------*/
+[left-sidebar]{
+    position:relative;
+    border:var(--Sidebar-Image-Frame-Size) solid var(--Sidebar-Image-Frame-Color);
+    background:var(--Sidebar-Image-Background);
+}
+ 
+[sidebar-image]{
+    width:var(--Sidebar-Image-Width);
+    height:auto;
+}
+ 
+[music-name]{
+    margin-left:10px;
+    font-family:barlow condensed;
+    font-size:var(--MusicPlayer-Text-Size);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--MusicPlayer-Text-Color);
+    line-height:var(--MusicPlayer-Text-Size);
+}
+ 
+/*------ RIGHTSIDE MAIN CONTENT ------*/
+.mainright {
+    margin-left:var(--Center-Gap);
+}
+ 
+[small-title]{
+    font-family:barlow condensed;
+    font-size:var(--Small-Title-Size);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--Small-Title-Color);
+}
+ 
+[small-title] + .tb-head [big-title]{
+    margin-top:4px;
+}
+ 
+[big-title]{
+    display:flex;
+    font-family:barlow condensed;
+    font-size:var(--Big-Title-Size);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:2.5px;
+    color:var(--Big-Title-Color);
+    line-height:var(--Big-Title-Size);
+}
+ 
+[big-title][flashing-cursor="yes"] .flooshed {
+    align-self:flex-end;
+    margin-bottom:3px;
+    margin-left:2px;
+    width:var(--Flashing-Cursor-Width);
+    height:2px;
+    background:var(--Flashing-Cursor-Color);
+    transform:skewX(-10deg);
+    animation: flashing 1s step-start 0s infinite;
+    -webkit-animation: flashing 1s step-start 0s infinite;
+    -moz-animation: flashing 1s step-start 0s infinite;
+}
+ 
+@keyframes flashing { 50% {opacity:0;} }
+@-webkit-keyframes flashing { 50% {opacity:0;} }
+@-moz-keyframes flashing { 50% {opacity:0;} }
+ 
+.quotecont {
+    margin-top:20px;
+}
+ 
+[quote]{
+    padding:var(--Quote-Padding);
+    font-family:rationale;
+    font-size:var(--Quote-Font-Size);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--Quote-Color);
+    text-align:center;
+}
+ 
+[icon-image]{
+    width:var(--Icon-Image-Size);
+    height:var(--Icon-Image-Size);
+    border:var(--Icon-Image-Border-Size) solid var(--Icon-Image-Border-Color);
+}
+ 
+/*------ COLUMNS GENERAL ------*/
+column {
+    padding-top:20px;
+    height:calc(100% - 20px);
+}
+ 
+/*------ COLUMN 1 ------*/
+column[left]{
+    width:var(--Column-1-Width);
+}
+ 
+[labels-box]{
+    padding:var(--Labels-Box-Padding);
+    background:var(--Labels-Box-Background);
+    border:var(--Labels-Box-Border-Size) solid var(--Labels-Box-Border-Color);
+}
+ 
+li[row]{
+    list-style-type:none;
+    line-height:var(--Label-Name-Size);
+}
+ 
+li[row] + li[row]{
+    margin-top:var(--Label-Row-Spacing);
+}
+ 
+[row-label]{
+    font-family:rationale;
+    font-size:var(--Label-Name-Size);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--Label-Name-Color);
+}
+ 
+[row-detail]{
+    margin-left:1.5px;
+    font-family:exo;
+    font-size:var(--Label-Detail-Size);
+    color:var(--Label-Detail-Color);
+}
+ 
+[custom-links]{
+    margin-top:16px;
+}
+ 
+[custom-links] a span {
+    display:block;
+    padding:var(--Custom-Links-Padding) calc(var(--Custom-Links-Padding) + 3px);
+    font-family:rationale;
+    font-size:var(--Custom-Links-Font-Size);
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+    color:var(--Custom-Links-Color);
+    line-height:var(--Custom-Links-Font-Size);
+    transition:color var(--Custom-Links-Hover-Speed) ease-in-out;
+}
+ 
+/*------ COLUMN 2 ------*/
+column[right]{
+    width:var(--Column-2-Width);
+    height:100%;
+}
+ 
+.tb-title {
+    padding-bottom:15px;
+}
+ 
+[textbox-title]{
+    padding:calc(var(--TextBox-Title-Padding) - 2px) var(--TextBox-Title-Padding);
+    background:var(--TextBox-Title-Background);
+    font-family:barlow condensed;
+    font-size:var(--TextBox-Title-Size);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:var(--TextBox-Title-Color);
+    text-align:center;
+}
+ 
+[textbox-text]{
+    border:var(--TextBox-Border-Size) solid var(--TextBox-Border-Color);
+    padding:calc(var(--TextBox-Padding) - 2px) var(--TextBox-Padding);
+    background:var(--TextBox-Background);
+    font-family:exo;
+    font-size:var(--TextBox-Font-Size);
+    color:var(--TextBox-Text-Color);
+    box-sizing:border-box;
+}
+ 
+[textbox-text] a {
+    padding-bottom:1px;
+    border-bottom:1px solid var(--TextBox-Links-Underline);
+    font-size:calc(var(--TextBox-Font-Size) - 1.5px);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--TextBox-Links);
+}
+ 
+.scone::-webkit-scrollbar {
+    width:var(--Scrollbar-Padding);
+    height:0px;
+    background-color:var(--TextBox-Background);
+}
+ 
+.scone::-webkit-scrollbar-thumb {
+    border:calc((var(--Scrollbar-Padding) - 1px) / 2) solid var(--TextBox-Background);
+    background-color:var(--Scrollbar-Thumb);
+}
+ 
+.scone::-webkit-scrollbar-track {
+    border:calc((var(--Scrollbar-Padding) - 1px) / 2) solid var(--TextBox-Background);
+    background-color:var(--Scrollbar-Track);
+}
+ 
+</style>
+ 
+</head>
+ 
+<body>
+ 
+<container>
+    <!------ TOP SECTION ------>
+    <section top>
+        <!-- ⭐⭐⭐ top left title -->
+        <div top-title>
+            ≥ I'm a goddess with a blade
+        </div><!--don't remove this line-->
+ 
+ 
+        <div divider></div>
+ 
+ 
+        <!-- ⭐⭐⭐ top right navlinks -->
+        <!--
+            Explanation of the GRAY text:
+            • href=""       this is where your link goes
+            • title=""      this is the hover text
+            • icon-name=""  name of the icon. to change it, pick one from
+                            this list  systemuicons.com
+ 
+            Feel free to add/change/remove any links as long as you
+            do not remove the credit
+        --->
+        <div top-links>
+ 
+            <!--start a link-->
+            <a href="/" title="home">
+                <i class="system-uicons" icon-name="Home (With Door)"></i>
+            </a>
+ 
+            <!--start a link-->
+            <a href="/ask" title="askbox">
+                <i class="system-uicons" icon-name="Paper Plane"></i>
+            </a>
+ 
+            <!--start a link-->
+            <a href="/archive" title="archive">
+                <i class="system-uicons" icon-name="Grid"></i>
+            </a>
+ 
+            <!-- please do not remove the credit! -->
+            <a crd href="//glenthemes.tumblr.com" title="'Rogue' page by glenthemes">
+                <span class="glenjamin"></span>
+            </a>
+ 
+        </div><!--end top links-->
+    </section><!--end top section-->
+ 
+ 
+ 
+    <!------ LEFT SIDEBAR ------>
+    <section left-sidebar>
+ 
+        <!-- ⭐⭐⭐ left sidebar image -->
+        <!-- image url goes in src="" -->
+        <img sidebar-image src="https://66.media.tumblr.com/878f42eb223c4a51593867a95d8d954a/tumblr_phsfneeqCF1qg2f5co3_r1_640.png">
+ 
+        <!-- ⭐⭐⭐ music player song name -->
+        <div music-name>K/DA — POP/STARS</div>
+ 
+        <!-- ⭐⭐⭐ music file link-->
+        <!-- STUCK? PLEASE READ: linktr.ee/direct_file_links -->
+        <!-- music url goes in src="" -->
+        <audio music src="https://cdn.discordapp.com/attachments/900670626774265886/900689685632921640/POPSTARS.mp3"></audio>
+ 
+    </section><!--end left sidebar-->
+ 
+ 
+ 
+    <!------ RIGHTSIDE MAIN CONTENT ------>
+    <section main-right>
+ 
+        <!-- ⭐⭐⭐ small title -->
+        <div small-title>band member</div>
+ 
+ 
+        <!-- ⭐⭐⭐ big title -->
+        <!--
+            if you don't want a flashing cursor at the end
+            of the title, change "yes" to "no"
+        --->
+        <div big-title flashing-cursor="yes">
+            ≥ K/DA Akali
+        </div><!--don't remove this line-->
+ 
+ 
+        <!-- ⭐⭐⭐ quote -->
+        <div quote>They could try but we're gonna wear the crown</div>
+ 
+ 
+        <!-- ⭐⭐⭐ icon image (right) -->
+        <img icon-image src="https://66.media.tumblr.com/c0dca377c4946efa9f64c1ece591b435/tumblr_phsfneeqCF1qg2f5co4_r1_500.png">
+ 
+ 
+ 
+ 
+ 
+        <!------ COLUMN 1 ------>
+        <column left alignment="bottom">
+ 
+            <!-- ⭐⭐⭐ labels box -->
+            <!--
+                • You MUST include the colon [:] when you type but
+                  you can choose to show or hide it when it comes out.
+ 
+                  Change "no" to "yes" if you want to show the [:]
+ 
+                • use the asterisk [*] to start a new row!
+                • make sure there is a space after the [*]
+                • please use a colon [:] to separate the label
+            --->
+            <div labels-box include-colon="no">
+                * Role: rapper
+                * Zodiac: Taurus
+                * Nicknames: Rogue, 힙합검객
+                * Height: 163CM (5'3")
+            </div><!--don't remove this line-->
+ 
+ 
+ 
+ 
+            <!-- ⭐⭐⭐ custom links -->
+            <!--
+                • You can change/add/remove any that you like
+                • To change the colors, font size, columns etc
+                  please go to :root
+            --->
+            <div custom-links>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link one</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link two</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link three</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link four</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link five</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link six</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link seven</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link eight</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link nine</a>
+                <a href="https://youtu.be/ZkNMZlkrzaU">link ten</a>
+            </div><!--don't remove this line-->
+        </column><!--end column 1-->
+ 
+ 
+ 
+ 
+ 
+        <!------ COLUMN 2 ------>
+        <column right alignment="bottom">
+ 
+            <!-- ⭐⭐⭐ textbox title -->
+            <div textbox-title>biography</div>
+ 
+ 
+            <!-- ⭐⭐⭐ actual textbox text -->
+            <!--
+                • bold text: <b>text</b>
+                • links: <a href="LINK-URL">text</a>
+                • italic: <i>text</i>
+                • use <br> to make a new line
+                • use <p> to make a new paragraph
+            --->
+            <div textbox-text>
+ 
+                Sidebar art by <a href="https://www.deviantart.com/ipaanbaa/art/KDA-Akali-771217710">ipaanbaa</a>
+                <br>
+                Quote box icon by <a href="http://guttertongue.tumblr.com/post/179734645695">guttertongue</a>
+                <p>
+                Type whatever you want here
+ 
+            </div><!--don't remove this line-->
+        </column><!--end column 2-->
+    </section><!--don't remove this line-->
+</container><!--don't remove this line-->
+ 
+</body>
+</html>
