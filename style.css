@@ -27458,14 +27458,14 @@ column[alignment="bottom"]{
   position: relative;
   width: 300px;
   margin: 40px auto;
-  background-color: #fff;
+  background-color: #11081f;
   text-align: center;
   line-height: 1.5em;
   overflow:hidden;
 }
   
 .gradient-multiline span {
-  color: #11081f;
+  color: #fff;
   background-color: #11081f;
 
   padding: 0.225rem 0.5rem;
